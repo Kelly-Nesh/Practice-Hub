@@ -17,11 +17,15 @@ class TwoSum:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
         """return indices of the two numbers such that they add up to
         target."""
-        length = len(nums)
-        for i in range(length):
-            for j in range(i + 1, length):
-                if (nums[i] + nums[j]) is target:
-                    return [i, j]
+        for i, j in enumerate(nums):
+            rem = target - j
+            try:
+                print(nums[i+1:])
+                idx = nums[i+1:].index(rem)
+            except ValueError:
+                continue
+            else:
+                return [i, idx + i + 1]
 
 
 class TestTwoSum(unittest.TestCase):
