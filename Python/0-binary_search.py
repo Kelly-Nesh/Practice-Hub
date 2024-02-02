@@ -29,7 +29,7 @@ def iterative_binary_search(array: list, target: int) -> int:
     """Uses a while loop"""
     l = 0
     r = len(array) - 1
-    while l < r:
+    while l <= r:
         # get middle index
         m = (l + r) // 1
 

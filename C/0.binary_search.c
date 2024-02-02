@@ -30,7 +30,7 @@ int main(void) {
 int iterative_binary_search(int arr[], int targ, int l, int r) {
     int m;
 
-    while (l < r) {
+    while (l <= r) {
         m = (int) (l + r) / 2;
 
         if (arr[m] == targ)
