@@ -6,3 +6,5 @@
   - Contains solutions JavaScript.
 + C/
   - Contains solutions in C.
++ Fronted/
+  - Contains HTML, CSS and JS for frontend dev
