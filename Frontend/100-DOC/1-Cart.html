@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-witdh, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/1-styles.css" />
     <title>Add to bag | Cart</title>
   </head>
@@ -10,17 +13,25 @@
     <main>
       <div class="product-image">
         <div class="angles">
-          <div class="a1"></div>
-          <div class="a2"></div>
-          <div class="a3"></div>
+          <div class="a1 cp selected">
+            <img src='images/shirt-front.png' alt='shirt front''>
+          </div>
+          <div class="a2 cp">
+            <img src='images/shirt-folded.png' alt='shirt folded''>
+          </div>
+          <div class="a3 cp">
+            <img src='images/shirt-back.png' alt='shirt back''>
+          </div>
         </div>
-        <div class="preview"></div>
+        <div class="preview cp">
+          <img src='images/shirt-front.png' alt='shirt preview''>
+        </div>
       </div>
       <div class="details">
         <div>
-          <h4 class="brand">Vic white</h4>
+          <h4 class="brand">Lee white</h4>
           <h3 class="name">Custom fit White Men's T-Shirt</h3>
-          <p class="description">T-Shirt with red stripped white Collar</p>
+          <p class="description">T-Shirt with red stripped white collar and soft cotton</p>
         </div>
         <div class="pricing">
           <div class="offer">
@@ -32,17 +43,42 @@
         <div class="sizes">
           <h4>Choose size</h4>
           <div>
-            <p class="size">S</p>
-            <p class="size">M</p>
-            <p class="size">L</p>
-            <p class="size">XL</p>
-            <p class="size">XXL</p>
+            <p class="size cp">S</p>
+            <p class="size cp checked">M</p>
+            <p class="size cp">L</p>
+            <p class="size cp">XL</p>
+            <p class="size cp">XXL</p>
           </div>
         </div>
         <div>
-          <button type="submit">Add to Cart</button>
+          <button type="submit" class="cp">Add to Cart</button>
         </div>
       </div>
     </main>
+    <script>
+      /* Product Image view section */
+      const sizes = document.querySelectorAll(".angles .cp img");
+      const preview = document.querySelector(".preview img");
+      sizes.forEach((size) => {
+        size.addEventListener("click", (e) => {
+          preview.src = e.target.src;
+          const selected = document.querySelector(".selected");
+          if (selected) selected.classList.remove("selected");
+          console.log(e.target, Object.keys(e.target));
+          e.target.parentElement.classList.add('selected');
+          
+        });
+      });
+
+      /* Sizes section */
+      const size = document.querySelectorAll(".size");
+      size.forEach((s) => {
+        s.addEventListener("click", (e) => {
+          const checked = document.querySelector(".checked");
+          if (checked) checked.classList.remove("checked");
+          e.target.classList.add("checked");
+        });
+      });
+    </script>
   </body>
 </html>
